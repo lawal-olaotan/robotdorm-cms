@@ -12,6 +12,8 @@ import {structureTool} from 'sanity/structure'
 import {apiVersion, dataset, projectId} from '@/sanity/env'
 import {schema} from '@/sanity/schemaTypes'
 import {structure} from '@/sanity/structure'
+// @ts-ignore
+import { muxInput } from 'sanity-plugin-mux-input';
 
 export default defineConfig({
   basePath: '/cms',
@@ -21,6 +23,7 @@ export default defineConfig({
   schema,
   plugins: [
     structureTool({structure}),
+    muxInput(),
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),

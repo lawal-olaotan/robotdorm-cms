@@ -18,6 +18,7 @@
     "react-dom": "19.1.0",
     "sanity": "^4.5.0",
     "sanity-plugin-dashboard-widget-document-list": "^2.1.1",
+    "sanity-plugin-mux-input": "^2.9.0",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
@@ -30,5 +31,9 @@
     "eslint-config-next": "15.5.0",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/lawal-olaotan/robotdorm-cms.git",
+  "author": "lawal-olaotan <olaotan104@gmail.com>",
+  "license": "MIT"
 }
