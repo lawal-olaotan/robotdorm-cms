@@ -12,6 +12,11 @@ export const postType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'categories',
+      type: 'array',
+      of: [defineArrayMember({type: 'reference', to: {type: 'category'}})],
+    }),
+    defineField({
       name: 'slug',
       type: 'slug',
       options: {
@@ -19,32 +24,32 @@ export const postType = defineType({
       },
     }),
     defineField({
-      name: 'author',
-      type: 'reference',
-      to: {type: 'author'},
-    }),
-    defineField({
-      name: 'mainImage',
+      name: 'thumbnail',
+      title: 'Thumbnail',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
+      options: { hotspot: true },
       fields: [
         defineField({
           name: 'alt',
+          title: 'Alt text',
           type: 'string',
-          title: 'Alternative text',
-        })
-      ]
+          description: 'Describe the thumbnail for accessibility & SEO',
+          validation: r => r.required().min(4),
+        }),
+      ],
     }),
     defineField({
-      name: 'categories',
-      type: 'array',
-      of: [defineArrayMember({type: 'reference', to: {type: 'category'}})],
+      name: 'created',
+      type: 'date',
     }),
     defineField({
-      name: 'publishedAt',
-      type: 'datetime',
+      name: 'description',
+      type: 'text',
+    }),
+    defineField({
+      name: 'video',
+      title: 'YouTube Video URL',
+      type: 'url'
     }),
     defineField({
       name: 'body',
