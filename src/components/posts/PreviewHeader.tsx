@@ -23,8 +23,8 @@ export const PreviewHeader = ({slug, sortCallback, direction}: PreviewHeaderProp
 
 
   return (
-    <div className={'w-full my-16'}>
-      <h1 className="scroll-m-20  pb-2 text-3xl font-base my-2">
+    <div className={'w-full mt-8'}>
+      <h1 className="scroll-m-20 pb-2 text-3xl font-base my-2">
         {currentTab?.title}
       </h1>
       <div className={'flex items-center justify-between w-full'}>

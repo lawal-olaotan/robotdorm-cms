@@ -25,7 +25,7 @@ export const Preview = ({posts, slug}: PostsPreviewProps) => {
   const [loadedPosts, setPosts] = useState<PostsPreview[]>(posts);
   const [page, setPage] = useState(1);
   const [isPending, startTransition] = useTransition();
-  const [isMorePosts, setIsMorePosts] = useState(true);
+  const [isMorePosts, setIsMorePosts] = useState(posts.length === PAGE_SIZE);
   const [selectedDirection, setSelectedDirection] = useState('desc');
 
   const postAction = async () => {
@@ -54,7 +54,7 @@ export const Preview = ({posts, slug}: PostsPreviewProps) => {
       <PreviewHeader direction={selectedDirection} sortCallback={sortAction} slug={slug}/>
       <ViewTransition enter="slide-in">
         <div className={'flex flex-col'}>
-          <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'}>
+          <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10'}>
             {
               loadedPosts.map((post: PostsPreview) => (
                 <Link href={`/post/${post.slug}`} key={post._id} className={'flex flex-col relative'}>

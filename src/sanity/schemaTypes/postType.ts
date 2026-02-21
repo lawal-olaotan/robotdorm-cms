@@ -27,7 +27,7 @@ export const postType = defineType({
       name: 'thumbnail',
       title: 'Thumbnail',
       type: 'image',
-      options: { hotspot: true },
+      options: {hotspot: true},
       fields: [
         defineField({
           name: 'alt',
@@ -55,6 +55,17 @@ export const postType = defineType({
       name: 'body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'steps',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: {type: 'step'}
+        }),
+      ],
+    }),
+
   ],
   preview: {
     select: {
