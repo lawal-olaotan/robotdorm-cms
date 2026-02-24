@@ -60,8 +60,7 @@ export const postType = defineType({
       type: 'array',
       of: [
         defineArrayMember({
-          type: 'reference',
-          to: {type: 'step'}
+          type: 'step',
         }),
       ],
     }),
