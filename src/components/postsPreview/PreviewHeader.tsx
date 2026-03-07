@@ -1,6 +1,5 @@
 import {tabsConstant} from "@/constants/tabs";
 import {useState} from "react";
-import {Tabs} from "@/components/posts/Tabs";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,6 +7,7 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import {ChevronDown, ChevronUp} from "lucide-react";
+import {Tabs} from "@/components/postsPreview/Tabs";
 
 interface PreviewHeaderProps {
   slug: string | undefined;

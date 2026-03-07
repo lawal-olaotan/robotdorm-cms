@@ -43,6 +43,25 @@ export const getAllPosts = (queryPayload: QueryPayload): string => {
       }`;
 };
 
+export const getPostsBySlug = (slug: string) => groq`*[_type == "post" && slug.current == "${slug}"]{
+    _id,
+    title,
+    "slug": slug.current,
+    "categories": categories[] ->
+    {
+      "title": title,
+      "slug": slug.current
+    },
+    created,
+    description,
+    video,
+    body,
+    "steps": steps[]{
+      "title": stepTitle,
+      "description": stepDescription,
+      "videoUrl": stepVideo
+    }}`;
+
 
 export const getSanityBaseUrl = () => {
 

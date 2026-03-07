@@ -22,9 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased bg-primary-foreground`}>
+      <body className={`${poppins.variable} antialiased bg-primary-foreground relative`}>
         <Navigation/>
+        <div className={'2xl:w-360 mx-auto py-2 xl:px-24 lg:px-12 px-4 mt-20'}>
         {children}
+        </div>
       </body>
     </html>
   );

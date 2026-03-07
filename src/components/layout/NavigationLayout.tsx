@@ -24,7 +24,7 @@ export const NavigationLayout = ({children}: NavigationLayoutProps) => {
           <Login/>
         </div>
         <div
-          className={`${active ? 'flex' : 'hidden'} lg:hidden flex-col items-center space-x-6 justify-start p-4 h-screen bg-white absolute top-0 left-0 py-20 text-2xl text-black z-10 w-full`}>
+          className={`${active ? 'flex' : 'hidden'} lg:hidden flex-col items-center space-x-6 justify-start p-4 h-screen bg-white absolute top-0 left-0 py-20 text-2xl text-black z-40 w-full`}>
           <div className='lg:hidden flex items-center'>
             <Button variant={'ghost'} className='absolute top-6 right-6 text-base' onClick={() => {
               setActive(!active)

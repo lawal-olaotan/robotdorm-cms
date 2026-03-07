@@ -1,6 +1,6 @@
 
 'use server';
-import {getAllPosts, getSanityBaseUrl} from "@/services/sanity/sanity.queries";
+import {getAllPosts, getPostsBySlug, getSanityBaseUrl} from "@/services/sanity/sanity.queries";
 import {requestClient} from "@/services/fetchClient";
 
 
@@ -16,5 +16,6 @@ export const loadLatestPosts = async (category: string | undefined , pageNumber 
   return await loadPosts(query);
 }
 
+export const loadPostBySlug = async (slug: string) => await loadPosts(getPostsBySlug(slug));
 
 

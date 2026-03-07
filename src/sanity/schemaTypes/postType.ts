@@ -3,7 +3,7 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const postType = defineType({
   name: 'post',
-  title: 'Post',
+  title: 'PostView',
   type: 'document',
   icon: DocumentTextIcon,
   fields: [
@@ -53,7 +53,7 @@ export const postType = defineType({
     }),
     defineField({
       name: 'body',
-      type: 'blockContent',
+      type: 'text',
     }),
     defineField({
       name: 'steps',
