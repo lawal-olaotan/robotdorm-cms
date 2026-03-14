@@ -53,7 +53,7 @@ export const postType = defineType({
       type: 'url'
     }),
     defineField({
-      name: 'introduction',
+      name: 'body',
       type: 'blockContent',
     }),
     defineField({
@@ -68,7 +68,7 @@ export const postType = defineType({
       type: 'text',
     }),
     defineField({
-      name: 'mainContent',
+      name: 'steps',
       type: 'array',
       of: [
         defineArrayMember({
