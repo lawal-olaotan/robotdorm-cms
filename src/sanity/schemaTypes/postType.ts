@@ -53,7 +53,8 @@ export const postType = defineType({
       type: 'url'
     }),
     defineField({
-      name: 'introduction',
+      name: 'body',
+      title: 'Body Content',
       type: 'blockContent',
     }),
     defineField({
@@ -63,12 +64,12 @@ export const postType = defineType({
       fields: ctaFields,
     }),
     defineField({
-      name: 'stepTitle',
-      title: 'Step Title',
-      type: 'text',
+      name: 'mainContentTitle',
+      title: 'Main Content Title',
+      type: 'string',
     }),
     defineField({
-      name: 'mainContent',
+      name: 'steps',
       type: 'array',
       of: [
         defineArrayMember({
