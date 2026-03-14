@@ -1,4 +1,5 @@
 import {defineField, defineType} from "sanity";
+import {ctaFields} from "@/sanity/schemaTypes/shared/ctaFields";
 
 export  const stepType = defineType ({
   name: 'step',
@@ -20,6 +21,12 @@ export  const stepType = defineType ({
       name: 'stepVideo',
       title: 'Step Video URL',
       type: 'url',
+    }),
+    defineField({
+      name: 'stepCta',
+      title: 'Step CTA',
+      type: 'object',
+      fields: ctaFields,
     }),
   ],
 })

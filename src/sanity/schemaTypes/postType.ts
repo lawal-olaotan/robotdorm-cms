@@ -1,9 +1,10 @@
 import {DocumentTextIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {ctaFields} from "@/sanity/schemaTypes/shared/ctaFields";
 
 export const postType = defineType({
   name: 'post',
-  title: 'PostView',
+  title: 'Post',
   type: 'document',
   icon: DocumentTextIcon,
   fields: [
@@ -53,7 +54,19 @@ export const postType = defineType({
     }),
     defineField({
       name: 'body',
-      type: 'text',
+      title: 'Body Content',
+      type: 'blockContent',
+    }),
+    defineField({
+      name: 'introductionCta',
+      title: 'Introduction CTA',
+      type: 'object',
+      fields: ctaFields,
+    }),
+    defineField({
+      name: 'mainContentTitle',
+      title: 'Main Content Title',
+      type: 'string',
     }),
     defineField({
       name: 'steps',
@@ -69,12 +82,13 @@ export const postType = defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
+        category: 'categories.0.title',
     },
-    prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      prepare({title, category}) {
+        return {
+          title,
+          subtitle: category || 'No category',
+        }
     },
   },
 })
