@@ -14,6 +14,11 @@ export interface PostHeader extends PostHeaderMetaData {
   description: string;
 }
 
+export interface PostMainBody {
+  _key?: string;
+  text: string;
+}
+
 export interface PostStep {
   description: string;
   title: string;
@@ -22,7 +27,7 @@ export interface PostStep {
 
 export interface PostDetail {
   _id: string;
-  body: unknown | null;
+  body: PostMainBody[];
   categories: Category[];
   created: string;
   description: string;
@@ -31,3 +36,5 @@ export interface PostDetail {
   title: string;
   video: string | null;
 }
+
+export type PostBodyProps = Omit<PostDetail,  '_id' | 'title' | 'description' | 'created' | 'categories' | 'slug'>;

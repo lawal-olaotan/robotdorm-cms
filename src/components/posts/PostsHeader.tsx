@@ -17,17 +17,17 @@ export const MetaDataHeader = ({category, created}: PostHeaderMetaData) => {
 }
 
 export const PostsHeader = (postHeader: PostHeader) => {
-  const {title, category, created, description } = postHeader;
+  const {title, category, created, description} = postHeader;
   return (
-    <div className="my-4 border-b border-gray-300 pb-4 text-center">
+    <div className="my-4 border-b border-gray-300 text-center lg:px-6 px-2">
       <MetaDataHeader
-      category={category}
-      created={created}
-       />
-      <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance my-8">
+        category={category}
+        created={created}
+      />
+      <h1 className="scroll-m-20 text-center text-5xl font-medium tracking-tight text-balance my-10">
         {title}
       </h1>
-      <p className={'text-md text-gray-700'}>{description}</p>
+      <p className={'text-md text-gray-700 my-8'}>{description}</p>
     </div>
   );
 }

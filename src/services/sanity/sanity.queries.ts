@@ -55,7 +55,7 @@ export const getPostsBySlug = (slug: string) => groq`*[_type == "post" && slug.c
     created,
     description,
     video,
-    body,
+    "body": body[]{ _key, "text": array::join(children[].text, " ") },
     "steps": steps[]{
       "title": stepTitle,
       "description": stepDescription,

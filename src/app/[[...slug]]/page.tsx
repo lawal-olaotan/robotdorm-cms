@@ -4,7 +4,7 @@ import { DynamicPageProps } from "@/types/page.type";
 import { Preview } from "@/components/postsPreview/Preview";
 
 export default async function Home({params}: DynamicPageProps) {
-  const {slug} = await params;
+  const { slug } = await params;
   const category = slug ? slug[0] as string : undefined;
   const latestPosts = await loadLatestPosts(category);
 

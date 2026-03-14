@@ -19,7 +19,6 @@ export const NavigationItems = () => {
   return (
     <div className={'flex flex-col lg:flex-row w-full sm:h-full lg:h-fit'}>
         <NavigationItem name="Pricing" href={`${baseUrl}/pricing`}/>
-        <NavigationItem name="Blog" href={"/"} />
     </div>
   )
 }
