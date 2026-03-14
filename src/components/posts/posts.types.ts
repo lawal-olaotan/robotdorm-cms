@@ -14,27 +14,45 @@ export interface PostHeader extends PostHeaderMetaData {
   description: string;
 }
 
-export interface PostMainBody {
+export interface PostIntroContents {
   _key?: string;
   text: string;
 }
 
-export interface PostStep {
+export interface CtaField {
+  ctaText: string;
+  ctaUrl: string;
+}
+
+export interface PostMainContents {
   description: string;
   title: string;
   videoUrl: string | null;
+  stepCta: CtaField | null;
 }
 
 export interface PostDetail {
   _id: string;
-  body: PostMainBody[];
+  body: PostIntroContents[];
   categories: Category[];
+  mainContentTitle: string | null;
+  introductionCta: CtaField | null;
   created: string;
   description: string;
   slug: string;
-  steps: PostStep[] | null;
+  steps: PostMainContents[] | null;
   title: string;
   video: string | null;
 }
 
 export type PostBodyProps = Omit<PostDetail,  '_id' | 'title' | 'description' | 'created' | 'categories' | 'slug'>;
+
+export interface PostIntroContentProps {
+  contents: PostIntroContents[];
+  cta: CtaField | null;
+}
+
+export interface PostMainContentProps {
+  title: string | null;
+  contents: PostMainContents[];
+}
