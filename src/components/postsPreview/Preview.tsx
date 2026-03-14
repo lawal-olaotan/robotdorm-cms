@@ -7,7 +7,7 @@ import React, {Activity, useState, useTransition, ViewTransition} from "react";
 import {PostsPreview} from "@/services/sanity/sanity.types";
 import {loadLatestPosts} from "@/services/sanity/sanity.services";
 import {Button} from "@/components/ui/Button";
-import {PreviewHeader} from "@/components/posts/PreviewHeader";
+import {PreviewHeader} from "@/components/postsPreview/PreviewHeader";
 
 
 interface PostsPreviewProps {

@@ -17,9 +17,8 @@ export const NavigationItems = () => {
 
   const baseUrl = process.env.NEXT_PUBLIC_MAIN_WEBSITE_URL;
   return (
-    <div className={'flex flex-col lg:flex-row w-full'}>
+    <div className={'flex flex-col lg:flex-row w-full sm:h-full lg:h-fit'}>
         <NavigationItem name="Pricing" href={`${baseUrl}/pricing`}/>
-        <NavigationItem name="Blog" href={"/"} />
     </div>
   )
 }
