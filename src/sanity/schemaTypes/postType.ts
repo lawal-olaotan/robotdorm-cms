@@ -54,6 +54,7 @@ export const postType = defineType({
     }),
     defineField({
       name: 'body',
+      title: 'Body Content',
       type: 'blockContent',
     }),
     defineField({
@@ -63,9 +64,9 @@ export const postType = defineType({
       fields: ctaFields,
     }),
     defineField({
-      name: 'stepTitle',
-      title: 'Step Title',
-      type: 'text',
+      name: 'mainContentTitle',
+      title: 'Main Content Title',
+      type: 'string',
     }),
     defineField({
       name: 'steps',
