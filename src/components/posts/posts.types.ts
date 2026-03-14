@@ -20,8 +20,8 @@ export interface PostIntroContents {
 }
 
 export interface CtaField {
-  ctaText: string;
-  ctaUrl: string;
+  text: string;
+  url: string;
 }
 
 export interface PostMainContents {

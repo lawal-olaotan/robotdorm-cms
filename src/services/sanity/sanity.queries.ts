@@ -52,12 +52,15 @@ export const getPostsBySlug = (slug: string) => groq`*[_type == "post" && slug.c
       "title": title,
       "slug": slug.current
     },
-    mainContentTitle,
-    introductionCta,
+    "introductionCta": introductionCta {
+      "text": ctaText,
+      "url": ctaUrl
+    },
     created,
     description,
     video,
     "body": body[]{ _key, "text": array::join(children[].text, " ") },
+    mainContentTitle,
     "steps": steps[]{
       "title": stepTitle,
       "description": stepDescription,
