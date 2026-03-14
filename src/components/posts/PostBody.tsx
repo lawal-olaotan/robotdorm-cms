@@ -7,13 +7,13 @@ import Link from "next/link";
 
 const CtaComponent = ({cta}: { cta: CtaField | null }) => {
 
-  if (!cta || !cta.ctaText || !cta.ctaUrl) {
+  if (!cta || !cta.text || !cta.url) {
     return null;
   }
 
   return (<div className={'my-8'}>
-    <Link href={cta.ctaUrl} className={'py-4 px-8 rounded-full text-white bg-primary'}>
-      {cta.ctaText}
+    <Link href={cta.url} className={'py-4 px-8 rounded-full text-white bg-primary'}>
+      {cta.text}
     </Link>
   </div>)
 }
