@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, {Fragment} from 'react';
 import {CtaField, PostBodyProps, PostIntroContentProps, PostMainContentProps} from "@/components/posts/posts.types";
 import {VideoPlayer} from "@/components/posts/Video";
 import Link from "next/link";
@@ -21,7 +21,7 @@ const CtaComponent = ({cta}: { cta: CtaField | null }) => {
 const IntroContent = ({contents, cta}: PostIntroContentProps) => {
 
   return (
-    <div className={'mb-20'}>
+    <Fragment>
       {contents && contents.length ? contents.map((content) => (
         <div key={content._key} className={"leading-7 not-first:mt-6"}>
           <span>{content.text}</span>
@@ -30,7 +30,7 @@ const IntroContent = ({contents, cta}: PostIntroContentProps) => {
       {
         cta && <CtaComponent cta={cta}/>
       }
-    </div>
+    </Fragment>
   )
 }
 

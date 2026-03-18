@@ -20,7 +20,8 @@ export  const stepType = defineType ({
     defineField({
       name: 'stepVideo',
       title: 'Step Video URL',
-      type: 'url',
+      type: 'image',
+      options: {hotspot: true},
     }),
     defineField({
       name: 'stepCta',
