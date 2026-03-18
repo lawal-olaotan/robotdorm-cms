@@ -1,7 +1,7 @@
-import {defineField, defineType} from "sanity";
-import {ctaFields} from "@/sanity/schemaTypes/shared/ctaFields";
+import { defineField, defineType } from 'sanity';
+import { ctaFields } from '@/sanity/schemaTypes/shared/ctaFields';
 
-export  const stepType = defineType ({
+export const stepType = defineType({
   name: 'step',
   title: 'Step',
   type: 'object',
@@ -15,20 +15,20 @@ export  const stepType = defineType ({
     defineField({
       name: 'stepDescription',
       title: 'Step Description',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'stepVideo',
       title: 'Step Video URL',
       type: 'image',
-      options: {hotspot: true},
+      options: { hotspot: true },
       fields: [
         defineField({
           name: 'alt',
           title: 'Alt text',
           type: 'string',
           description: 'Describe the thumbnail for accessibility & SEO',
-          validation: r => r.required().min(4),
+          validation: (r) => r.required().min(4),
         }),
       ],
     }),
@@ -39,4 +39,4 @@ export  const stepType = defineType ({
       fields: ctaFields,
     }),
   ],
-})
+});

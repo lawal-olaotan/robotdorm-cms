@@ -1,4 +1,4 @@
-import {groq} from 'next-sanity'
+import { groq } from 'next-sanity';
 
 interface QueryPayload {
   start: number;
@@ -9,25 +9,28 @@ interface QueryPayload {
 
 const validateQueryPayload = (payload: QueryPayload) => {
   if (payload.start < 0 || payload.end <= payload.start) {
-    throw new Error(`Invalid pagination parameters: start (${payload.start}) must be >= 0 and end (${payload.end}) must be > start`);
+    throw new Error(
+      `Invalid pagination parameters: start (${payload.start}) must be >= 0 and end (${payload.end}) must be > start`,
+    );
   }
 
   const validSortDirections = ['asc', 'desc'];
   if (payload.sortDirection && !validSortDirections.includes(payload.sortDirection)) {
-    throw new Error(`Invalid sort direction: ${payload.sortDirection}. Allowed values are: ${validSortDirections.join(', ')}`);
+    throw new Error(
+      `Invalid sort direction: ${payload.sortDirection}. Allowed values are: ${validSortDirections.join(', ')}`,
+    );
   }
 
   const allowedCategories = ['blog', 'releases', undefined];
   if (payload.category && !allowedCategories.includes(payload.category)) {
-    throw new Error(`Invalid category: ${payload.category}. Allowed categories are: ${allowedCategories.join(', ')}`);
+    throw new Error(
+      `Invalid category: ${payload.category}. Allowed categories are: ${allowedCategories.join(', ')}`,
+    );
   }
-
-}
-
+};
 
 export const getAllPosts = (queryPayload: QueryPayload): string => {
-
-    validateQueryPayload(queryPayload);
+  validateQueryPayload(queryPayload);
 
   const categoryFilter = queryPayload.category
     ? ` && references(*[_type == "category" && slug.current == "${queryPayload.category}"]._id)`
@@ -43,7 +46,9 @@ export const getAllPosts = (queryPayload: QueryPayload): string => {
       }`;
 };
 
-export const getPostsBySlug = (slug: string) => groq`*[_type == "post" && slug.current == "${slug}"]{
+export const getPostsBySlug = (
+  slug: string,
+) => groq`*[_type == "post" && slug.current == "${slug}"]{
     _id,
     title,
     "slug": slug.current,
@@ -63,7 +68,7 @@ export const getPostsBySlug = (slug: string) => groq`*[_type == "post" && slug.c
     mainContentTitle,
     "steps": steps[]{
       "title": stepTitle,
-      "description": stepDescription,
+      "description": stepDescription{ _key, "text": array::join(children[].text, " ") },
       "videoUrl": { "asset": stepVideo.asset->url, "alt": stepVideo.alt },
       "stepCta": stepCta {
         "text": ctaText,
@@ -71,15 +76,12 @@ export const getPostsBySlug = (slug: string) => groq`*[_type == "post" && slug.c
       }
     }}`;
 
-
 export const getSanityBaseUrl = () => {
-
-  const {PROJECT_ID, SANITY_DATASET} = process.env;
+  const { PROJECT_ID, SANITY_DATASET } = process.env;
 
   if (!PROJECT_ID || !SANITY_DATASET) {
     throw new Error('Missing environment variables: PROJECT_ID and SANITY_DATASET are required');
   }
 
   return `https://${PROJECT_ID}.api.sanity.io/v2025-08-23/data/query/${SANITY_DATASET}`;
-
-}
+};

@@ -6,7 +6,9 @@
     "dev": "eslint && next dev -p 5000 --turbo",
     "build": "next build",
     "start": "next start -p 5000",
-    "lint": "eslint"
+    "lint": "eslint",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css}\""
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",

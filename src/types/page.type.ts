@@ -1,1 +1,1 @@
-export type DynamicPageProps = { params: Promise<{ slug?: string[] }> }
+export type DynamicPageProps = { params: Promise<{ slug?: string[] }> };

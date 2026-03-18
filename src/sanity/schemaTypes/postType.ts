@@ -1,6 +1,6 @@
-import {DocumentTextIcon} from '@sanity/icons'
-import {defineArrayMember, defineField, defineType} from 'sanity'
-import {ctaFields} from "@/sanity/schemaTypes/shared/ctaFields";
+import { DocumentTextIcon } from '@sanity/icons';
+import { defineArrayMember, defineField, defineType } from 'sanity';
+import { ctaFields } from '@/sanity/schemaTypes/shared/ctaFields';
 
 export const postType = defineType({
   name: 'post',
@@ -15,7 +15,7 @@ export const postType = defineType({
     defineField({
       name: 'categories',
       type: 'array',
-      of: [defineArrayMember({type: 'reference', to: {type: 'category'}})],
+      of: [defineArrayMember({ type: 'reference', to: { type: 'category' } })],
     }),
     defineField({
       name: 'slug',
@@ -28,14 +28,14 @@ export const postType = defineType({
       name: 'thumbnail',
       title: 'Thumbnail',
       type: 'image',
-      options: {hotspot: true},
+      options: { hotspot: true },
       fields: [
         defineField({
           name: 'alt',
           title: 'Alt text',
           type: 'string',
           description: 'Describe the thumbnail for accessibility & SEO',
-          validation: r => r.required().min(4),
+          validation: (r) => r.required().min(4),
         }),
       ],
     }),
@@ -55,7 +55,7 @@ export const postType = defineType({
     defineField({
       name: 'video',
       title: 'YouTube Video URL',
-      type: 'url'
+      type: 'url',
     }),
     defineField({
       name: 'body',
@@ -82,18 +82,17 @@ export const postType = defineType({
         }),
       ],
     }),
-
   ],
   preview: {
     select: {
       title: 'title',
       category: 'categories.0.title',
     },
-    prepare({title, category}) {
+    prepare({ title, category }) {
       return {
         title,
         subtitle: category || 'No category',
-      }
+      };
     },
   },
-})
+});

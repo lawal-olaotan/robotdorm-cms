@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "../styles/globals.css";
-import {Navigation} from "@/components/layout/Navigation";
-
+import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
+import '../styles/globals.css';
+import { Navigation } from '@/components/layout/Navigation';
 
 const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
-  title: "RobotDorm Newsroom | Recent news and updates about RobotDorm",
-  description: "Stay up-to-date with the latest news and updates about RobotDorm, the AI-powered content creation platform. Explore our newsroom for insights, announcements, and industry trends related to AI and content creation.",
+  title: 'RobotDorm Newsroom | Recent news and updates about RobotDorm',
+  description:
+    'Stay up-to-date with the latest news and updates about RobotDorm, the AI-powered content creation platform. Explore our newsroom for insights, announcements, and industry trends related to AI and content creation.',
 };
 
 export default function RootLayout({
@@ -23,10 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased bg-white relative`}>
-        <Navigation/>
-        <div className={'2xl:w-360 mx-auto py-2 xl:px-24 lg:px-12 px-4 mt-20'}>
-        {children}
-        </div>
+        <Navigation />
+        <div className={'2xl:w-360 mx-auto py-2 xl:px-24 lg:px-12 px-4 mt-20'}>{children}</div>
       </body>
     </html>
   );

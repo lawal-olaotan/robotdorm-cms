@@ -1,4 +1,4 @@
-import { defineField } from 'sanity'
+import { defineField } from 'sanity';
 
 export const ctaFields = [
   defineField({
@@ -11,4 +11,4 @@ export const ctaFields = [
     title: 'CTA URL',
     type: 'url',
   }),
-]
+];

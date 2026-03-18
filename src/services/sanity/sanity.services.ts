@@ -1,21 +1,19 @@
-
 'use server';
-import {getAllPosts, getPostsBySlug, getSanityBaseUrl} from "@/services/sanity/sanity.queries";
-import {requestClient} from "@/services/fetchClient";
+import { getAllPosts, getPostsBySlug, getSanityBaseUrl } from '@/services/sanity/sanity.queries';
+import { requestClient } from '@/services/fetchClient';
 
+const loadPosts = async (query: string) => await requestClient(getSanityBaseUrl(), { query });
 
-
-const loadPosts = async (query:string) => await requestClient(getSanityBaseUrl(), {query});
-
-
-export const loadLatestPosts = async (category: string | undefined , pageNumber = 1, sortDirection = 'desc') => {
+export const loadLatestPosts = async (
+  category: string | undefined,
+  pageNumber = 1,
+  sortDirection = 'desc',
+) => {
   const pageSize = 6;
   const start = (pageNumber - 1) * pageSize;
   const end = start + pageSize;
-  const query = getAllPosts({start, end, sortDirection, category});
+  const query = getAllPosts({ start, end, sortDirection, category });
   return await loadPosts(query);
-}
+};
 
 export const loadPostBySlug = async (slug: string) => await loadPosts(getPostsBySlug(slug));
-
-

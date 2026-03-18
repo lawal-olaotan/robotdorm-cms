@@ -1,7 +1,6 @@
-
 type sanityPostPayload = {
-  query: string,
-}
+  query: string;
+};
 
 enum requestType {
   POST = 'POST',
@@ -13,9 +12,8 @@ enum requestType {
  * @param url
  * @param payload
  */
-export const requestClient = async (url:string, payload:sanityPostPayload) => {
-
-  try{
+export const requestClient = async (url: string, payload: sanityPostPayload) => {
+  try {
     const response = await fetch(url, {
       method: requestType.POST,
       headers: {
@@ -24,9 +22,8 @@ export const requestClient = async (url:string, payload:sanityPostPayload) => {
       body: JSON.stringify(payload),
     });
     return await response.json();
-  }catch (error) {
+  } catch (error) {
     console.error('Error fetching data:', error);
     throw error;
   }
-
-}
+};

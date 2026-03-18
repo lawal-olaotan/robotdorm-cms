@@ -1,4 +1,3 @@
-
 export interface Category {
   slug: string;
   title: string;
@@ -14,7 +13,7 @@ export interface PostHeader extends PostHeaderMetaData {
   description: string;
 }
 
-export interface PostIntroContents {
+export interface BlockContents {
   _key?: string;
   text: string;
 }
@@ -25,7 +24,7 @@ export interface CtaField {
 }
 
 export interface PostMainContents {
-  description: string;
+  description: BlockContents[];
   title: string;
   videoUrl: {
     asset: string;
@@ -36,7 +35,7 @@ export interface PostMainContents {
 
 export interface PostDetail {
   _id: string;
-  body: PostIntroContents[];
+  body: BlockContents[];
   categories: Category[];
   mainContentTitle: string | null;
   introductionCta: CtaField | null;
@@ -48,10 +47,13 @@ export interface PostDetail {
   video: string | null;
 }
 
-export type PostBodyProps = Omit<PostDetail,  '_id' | 'title' | 'description' | 'created' | 'categories' | 'slug'>;
+export type PostBodyProps = Omit<
+  PostDetail,
+  '_id' | 'title' | 'description' | 'created' | 'categories' | 'slug'
+>;
 
 export interface PostIntroContentProps {
-  contents: PostIntroContents[];
+  contents: BlockContents[];
   cta: CtaField | null;
 }
 

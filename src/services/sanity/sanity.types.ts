@@ -1,4 +1,3 @@
-
 export interface PostThumbnail {
   alt: string;
   asset: string;

@@ -1,5 +1,4 @@
-import {defineField, defineType} from "sanity";
-
+import { defineField, defineType } from 'sanity';
 
 export const streamType = defineType({
   name: 'stream',
@@ -10,7 +9,7 @@ export const streamType = defineType({
       name: 'demoVideo',
       title: 'Video',
       type: 'videoItem',
-    })
+    }),
   ],
   preview: {
     select: {
@@ -18,5 +17,4 @@ export const streamType = defineType({
       media: 'video',
     },
   },
-
-})
+});
