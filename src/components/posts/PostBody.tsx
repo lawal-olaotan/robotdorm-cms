@@ -3,6 +3,7 @@ import React, {Fragment} from 'react';
 import {CtaField, PostBodyProps, PostIntroContentProps, PostMainContentProps} from "@/components/posts/posts.types";
 import {VideoPlayer} from "@/components/posts/Video";
 import Link from "next/link";
+import Image from "next/image";
 
 
 const CtaComponent = ({cta}: { cta: CtaField | null }) => {
@@ -36,17 +37,22 @@ const IntroContent = ({contents, cta}: PostIntroContentProps) => {
 
 const MainContent = ({contents, title}: PostMainContentProps) => (
   contents && contents.length ? (
-    <div className={'my-12'}>
+    <div className={'my-20'}>
       {title && <h2 className={'text-2xl font-semibold mb-8'}>{title}</h2>}
       {contents.map((step, index) => (
-        <div key={index} className={'mb-8'}>
+        <div key={index} className={'mb-14'}>
           <h3 className={'text-xl font-medium mb-4'}>{step.title}</h3>
           <p className={'text-gray-700 mb-4'}>{step.description}</p>
-          {/*{step.videoUrl && (*/}
-          {/*  <VideoPlayer*/}
-          {/*    src={new URL(step?.videoUrl).href ?? null}*/}
-          {/*  />*/}
-          {/*)}*/}
+          { step?.videoUrl?.asset &&
+            <Image
+              src={step.videoUrl.asset}
+              alt={step.videoUrl.alt}
+              width={800}
+              height={450}
+              className={'object-cover rounded-md'}
+              loading="lazy"
+            />
+          }
           { step?.stepCta && (
             <CtaComponent cta={step?.stepCta}/>
           )}
@@ -59,9 +65,6 @@ const MainContent = ({contents, title}: PostMainContentProps) => (
 export const PostBody = (content: PostBodyProps) => {
 
   const {body: introContent, introductionCta, mainContentTitle, steps, video} = content;
-
-  console.log('PostBody content:', steps);
-
   return (
     <div className={'lg:px-6 px-4 my-8'}>
       <IntroContent contents={introContent} cta={introductionCta}/>

@@ -27,7 +27,10 @@ export interface CtaField {
 export interface PostMainContents {
   description: string;
   title: string;
-  videoUrl: string | null;
+  videoUrl: {
+    asset: string;
+    alt: string;
+  };
   stepCta: CtaField | null;
 }
 

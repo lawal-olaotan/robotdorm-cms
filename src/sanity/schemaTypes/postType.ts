@@ -44,6 +44,11 @@ export const postType = defineType({
       type: 'date',
     }),
     defineField({
+      name: 'lastUpdated',
+      title: 'Last Updated',
+      type: 'date',
+    }),
+    defineField({
       name: 'description',
       type: 'text',
     }),
@@ -82,13 +87,13 @@ export const postType = defineType({
   preview: {
     select: {
       title: 'title',
-        category: 'categories.0.title',
+      category: 'categories.0.title',
     },
-      prepare({title, category}) {
-        return {
-          title,
-          subtitle: category || 'No category',
-        }
+    prepare({title, category}) {
+      return {
+        title,
+        subtitle: category || 'No category',
+      }
     },
   },
 })
