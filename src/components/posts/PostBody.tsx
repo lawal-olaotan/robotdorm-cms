@@ -42,11 +42,11 @@ const MainContent = ({contents, title}: PostMainContentProps) => (
         <div key={index} className={'mb-8'}>
           <h3 className={'text-xl font-medium mb-4'}>{step.title}</h3>
           <p className={'text-gray-700 mb-4'}>{step.description}</p>
-          {step.videoUrl && (
-            <VideoPlayer
-              src={new URL(step?.videoUrl).href ?? null}
-            />
-          )}
+          {/*{step.videoUrl && (*/}
+          {/*  <VideoPlayer*/}
+          {/*    src={new URL(step?.videoUrl).href ?? null}*/}
+          {/*  />*/}
+          {/*)}*/}
           { step?.stepCta && (
             <CtaComponent cta={step?.stepCta}/>
           )}
@@ -59,6 +59,8 @@ const MainContent = ({contents, title}: PostMainContentProps) => (
 export const PostBody = (content: PostBodyProps) => {
 
   const {body: introContent, introductionCta, mainContentTitle, steps, video} = content;
+
+  console.log('PostBody content:', steps);
 
   return (
     <div className={'lg:px-6 px-4 my-8'}>
