@@ -57,7 +57,7 @@ const MainContent = ({ contents, title }: PostMainContentProps) =>
               alt={step.videoUrl.alt}
               width={800}
               height={450}
-              className={'object-cover rounded-md'}
+              className={'mt-6'}
               loading="lazy"
             />
           )}
