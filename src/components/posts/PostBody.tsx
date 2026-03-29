@@ -1,7 +1,6 @@
 'use client';
 import React, { Fragment } from 'react';
 import {
-  BlockContents,
   CtaField,
   PostBodyProps,
   PostIntroContentProps,
@@ -10,15 +9,8 @@ import {
 import { VideoPlayer } from '@/components/posts/Video';
 import Link from 'next/link';
 import Image from 'next/image';
+import { BlockContent } from '@/components/posts/BlockContent';
 
-const BlockContent = ({ contents }: { contents: BlockContents[] }) =>
-  contents && contents.length
-    ? contents.map((content) => (
-        <div key={content._key} className={'leading-7 not-first:mt-6'}>
-          <span>{content.text}</span>
-        </div>
-      ))
-    : null;
 
 const CtaComponent = ({ cta }: { cta: CtaField | null }) => {
   if (!cta || !cta.text || !cta.url) {
@@ -46,10 +38,10 @@ const IntroContent = ({ contents, cta }: PostIntroContentProps) => {
 const MainContent = ({ contents, title }: PostMainContentProps) =>
   contents && contents.length ? (
     <div className={'my-20'}>
-      {title && <h2 className={'text-2xl font-semibold mb-8'}>{title}</h2>}
+      {title && <h2 className={'text-2xl font-bold mb-8'}>{title}</h2>}
       {contents.map((step, index) => (
         <div key={index} className={'mb-14'}>
-          <h3 className={'text-xl font-medium mb-4'}>{step.title}</h3>
+          <h3 className={'text-xl font-bold mb-4'}>{step.title}</h3>
           <BlockContent contents={step.description} />
           {step?.videoUrl?.asset && (
             <Image

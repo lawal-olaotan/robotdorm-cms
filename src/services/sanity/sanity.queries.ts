@@ -64,11 +64,27 @@ export const getPostsBySlug = (
     created,
     description,
     video,
-    "body": body[]{ _key, "text": array::join(children[].text, " ") },
+    "body": body[]{ 
+    _key, 
+    "children": children[]{
+      _key,
+      _type,
+      text,
+      marks
+    }
+     },
     mainContentTitle,
     "steps": steps[]{
       "title": stepTitle,
-      "description": stepDescription[]{ _key, "text": array::join(children[].text, " ") },
+      "description": stepDescription[]{ 
+      _key, 
+      "children": children[]{
+      _key,
+      _type,
+      text,
+      marks
+      }
+    },
       "videoUrl": { "asset": stepVideo.asset->url, "alt": stepVideo.alt },
       "stepCta": stepCta {
         "text": ctaText,

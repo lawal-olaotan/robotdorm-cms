@@ -13,9 +13,17 @@ export interface PostHeader extends PostHeaderMetaData {
   description: string;
 }
 
+export type BlockTextContent = {
+  _key: string;
+  _type: string;
+  text: string;
+  marks?: string[];
+}
+
 export interface BlockContents {
   _key?: string;
   text: string;
+  children?: BlockTextContent[];
 }
 
 export interface CtaField {
