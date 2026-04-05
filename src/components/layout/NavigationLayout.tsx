@@ -6,11 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
-interface NavigationLayoutProps {
-  children?: React.ReactNode;
-}
-
-export const NavigationLayout = ({ children }: NavigationLayoutProps) => {
+export const NavigationLayout = () => {
   const [active, setActive] = useState(false);
 
   return (
@@ -18,10 +14,8 @@ export const NavigationLayout = ({ children }: NavigationLayoutProps) => {
       className={'2xl:w-360 m-auto flex items-center justify-between py-2 xl:px-24 lg:px-12 px-4'}
     >
       <Logo />
-
       <div className="items-center space-x-6 w-fit flex">
         <div className={'space-x-6 items-center h-fit hidden lg:flex relative text-sky-600'}>
-          {children}
           <Login />
         </div>
         <div
@@ -38,7 +32,6 @@ export const NavigationLayout = ({ children }: NavigationLayoutProps) => {
               <X />
             </Button>
           </div>
-          {children}
           <Login />
         </div>
       </div>
