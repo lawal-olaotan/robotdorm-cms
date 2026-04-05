@@ -7,6 +7,6 @@ export default async function Home({ params }: DynamicPageProps) {
   const { slug } = await params;
   const category = slug ? (slug[0] as string) : undefined;
   const latestPosts = await loadLatestPosts(category);
-
+  
   return <Preview slug={category} posts={latestPosts.result} />;
 }
